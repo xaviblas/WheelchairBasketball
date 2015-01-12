@@ -103,7 +103,7 @@ public static class AlignFind
 		
 		int count = 1;
 		foreach(Align align in alignsPossible) {
-			Console.Write(String.Format("{0,3:0.#}", count ++) + ")\t");
+			Console.Write(String.Format("{0,3:0.#}", count ++) + ")  ");
 			align.Print(User.Profile.RESEARCHER);
 		}
 	}

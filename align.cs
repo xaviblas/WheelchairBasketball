@@ -62,7 +62,7 @@ public class Align
 		if(profile == User.Profile.TRAINER)
 			sep = "\n";
 		else if(profile == User.Profile.RESEARCHER)
-			sep = "\t";
+			sep = " ";
 
 		foreach(Player p in list) {
 			Console.Write(sepNow);

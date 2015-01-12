@@ -79,10 +79,10 @@ public class Player
 			//return discapNum.ToString();
 			//return numShirt.ToString() + "_" + string.Format("{0,-3:0.#}", discapNum);
 		
-			Console.Write(numShirt.ToString());
+			Console.Write(String.Format("{0,2:0.#}", numShirt));
 
 			Console.ForegroundColor = ConsoleColor.DarkGray;
-		       	Console.Write("[" + discapNum.ToString() + "]");
+		       	Console.Write("[" + String.Format("{0,-3:0.#}", discapNum) + "]");
 			Console.ForegroundColor = ConsoleColor.White;
 
 			Console.ForegroundColor = getColorFromStatus();	
