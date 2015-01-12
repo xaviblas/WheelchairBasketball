@@ -32,29 +32,19 @@ public class Basquet
 		myPositions.Add(Player.Positions.GUARD);
 		myPositions.Add(Player.Positions.CENTER);
 
-		Player p1 = new Player(
-				1,3,"soc el 1 de discap 3",
-				Player.Positions.GUARD,
-				myPositions
-				);
-		//Console.WriteLine("Imprimir 1er jug");
-		//pepe.Print(user.profile);
 		
-
-		Player p2 = new Player(
-				2,4,"soc el 2 de discap 4",
-				Player.Positions.CENTER,
-				myPositions
-				);
-		//Console.WriteLine("Imprimir 2n jug");
-		//marta.Print(user.profile);
-
-
-		Player p3 = new Player(3, 1   );//, "3 discap:1", Player.Positions.CENTER, myPositions);
-		Player p4 = new Player(4, 4.5f);//, "4 discap:4.5", Player.Positions.CENTER, myPositions);
-		Player p5 = new Player(5, 3   );//, "5 discap:3", Player.Positions.CENTER, myPositions);
-		Player p6 = new Player(6, 3.5f);//, "6 discap:3.5", Player.Positions.CENTER, myPositions);
-		Player p7 = new Player(7, 1.5f);//, "7 discap:1.5", Player.Positions.CENTER, myPositions);
+		Player p1 = new Player(1, 4);
+		Player p2 = new Player(2, 3);
+		Player p3 = new Player(3, 2.5f);
+		Player p4 = new Player(4, 3);
+		Player p5 = new Player(5, 1);
+		Player p6 = new Player(6, 3);
+		Player p7 = new Player(7, 1);
+		Player p8 = new Player(8, 4);
+		Player p9 = new Player(9, 4);
+		Player p10 = new Player(10, 2);
+		Player p11 = new Player(11, 2.5f);
+		Player p12 = new Player(12, 1.5f);
 
 		Team team = new Team();
 		team.Add(p1);
@@ -64,21 +54,26 @@ public class Basquet
 		team.Add(p5);
 		team.Add(p6);
 		team.Add(p7);
+		team.Add(p8);
+		team.Add(p9);
+		team.Add(p10);
+		team.Add(p11);
+		team.Add(p12);
 
 		team.Print(User.Profile.RESEARCHER);
-		team.FindAligns(user.discapMax);
+		AlignFind.FindAligns(team.list, user.discapMax, 13);
 
 		Console.WriteLine("\nRemoving player 6 because he kick the referree on the ass\n");
 		p6.status = Player.Status.ELIMINATED;
 		
 		team.Print(User.Profile.RESEARCHER);
-		team.FindAligns(user.discapMax);
+		AlignFind.FindAligns(team.list, user.discapMax, 13);
 		
 		Console.WriteLine("\nPlayer 2 want to rest temporarily\n");
 		p2.status = Player.Status.WANNAREST;
 	
 		team.Print(User.Profile.RESEARCHER);
-		team.FindAligns(user.discapMax);
+		AlignFind.FindAligns(team.list, user.discapMax, 13);
 
 
 

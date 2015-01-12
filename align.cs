@@ -23,14 +23,21 @@ using System.Collections.Generic; //List<T>
 public class Align 
 {
 	private List<Player> list;
+	public float discapTotal;
 
+
+	//constructors
 	public Align() {
 		list = new List<Player>();
+		discapTotal = 0;
 	}
 	
 	public Align(List<Player> list) {
 		this.list = list;
+		discapTotal = DiscapTotal();
 	}
+
+
 
 	public void Add(Player p) {
 		list.Add(p);
@@ -65,8 +72,10 @@ public class Align
 		Console.WriteLine(" = " + DiscapTotal().ToString());
 	}
 
-	public bool IsValid(float discapMax) {
-		if(DiscapTotal() > discapMax)
+	public bool IsValid(float discapMax, float discapMin) 
+	{
+		float discapTotal = DiscapTotal();
+		if(discapTotal < discapMin || discapTotal > discapMax)
 			return false;
 
 		foreach(Player p in list)

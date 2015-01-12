@@ -20,7 +20,8 @@
 using System;
 using System.Collections; //ArrayList
 
-public class Player {
+public class Player 
+{
 	public enum Positions { UNDEF, GUARD, CENTER, FORWARD, OTHER };
 
 	//private string team; //Barcelona. Can be null. Needed by National Coach
