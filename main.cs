@@ -74,27 +74,21 @@ public class Basquet
 	
 		team.Print(User.Profile.RESEARCHER);
 		AlignFind.FindAligns(team.list, user.discapMax, 13);
+		
+		Console.WriteLine("\nPlayers 7 and 8 must play\n");
+		p7.status = Player.Status.MUSTPLAY;
+		p8.status = Player.Status.MUSTPLAY;
+
+		team.Print(User.Profile.RESEARCHER);
+		AlignFind.FindAligns(team.list, user.discapMax, 13);
 
 
-
-
-/*
+		/*
 		Align align = new Align();
 		align.Add(p1);
 		align.Add(p2);
 		Console.WriteLine("\nImprimir aliniacio:");
 		align.Print(user.profile);
-
-		Console.WriteLine("Total Discap:" + align.DiscapTotal().ToString());
-
-		*/
-
-		/*
-		Console.WriteLine(String.Format("{0,-10:0.#}", 123.4567) + "hola");
-		Console.WriteLine(String.Format("{0,-10:0.#}", 123) + "hola");
-		
-		Console.WriteLine(String.Format("{0,10:0.#}", 123.4567) + "hola");
-		Console.WriteLine(String.Format("{0,10:0.#}", 123) + "hola");
 		*/
 	}
 }

@@ -35,7 +35,7 @@ public class Player
 	//private int seasonStart; //1997-1998; will be recorded as 1997
 	//private bool gender; //1: male; 0: female
 	
-	public enum Status { CANPLAY, WANNAREST, ELIMINATED };
+	public enum Status { CANPLAY, MUSTPLAY, WANNAREST, ELIMINATED };
 	public Status status; //used by trainer during the match
 
 	public Player(int numShirt, float discapNum, string fullName, 
@@ -80,14 +80,14 @@ public class Player
 			//return numShirt.ToString() + "_" + string.Format("{0,-3:0.#}", discapNum);
 		
 			Console.Write(String.Format("{0,2:0.#}", numShirt));
+			Console.ForegroundColor = getColorFromStatus();	
+			Console.Write(statusChar());
+			Console.ForegroundColor = ConsoleColor.White;
 
 			Console.ForegroundColor = ConsoleColor.DarkGray;
 		       	Console.Write("[" + String.Format("{0,-3:0.#}", discapNum) + "]");
 			Console.ForegroundColor = ConsoleColor.White;
 
-			Console.ForegroundColor = getColorFromStatus();	
-			Console.Write(statusChar());
-			Console.ForegroundColor = ConsoleColor.White;
 		//else
 		//	return "";
 	}
@@ -106,6 +106,8 @@ public class Player
 	private char statusChar() {
 		if(status == Status.CANPLAY)
 			return ' ';
+		else if(status == Status.MUSTPLAY)
+			return 'M';
 		else if(status == Status.WANNAREST)
 			return 'R';
 		else //(status == Status.ELIMINATED)
@@ -115,6 +117,8 @@ public class Player
 	private ConsoleColor getColorFromStatus() {
 		if(status == Status.CANPLAY)
 			return ConsoleColor.White;
+		else if(status == Status.MUSTPLAY)
+			return ConsoleColor.Green;
 		else if(status == Status.WANNAREST)
 			return ConsoleColor.Yellow;
 		else //(status == Status.ELIMINATED)

@@ -72,15 +72,25 @@ public class Align
 		Console.WriteLine(" = " + DiscapTotal().ToString());
 	}
 
-	public bool IsValid(float discapMax, float discapMin) 
+	public bool IsValid(List<Player> listAll, float discapMax, float discapMin) 
 	{
 		float discapTotal = DiscapTotal();
 		if(discapTotal < discapMin || discapTotal > discapMax)
 			return false;
 
 		foreach(Player p in list)
-			if(p.status != Player.Status.CANPLAY)
+			if(p.status == Player.Status.WANNAREST || p.status == Player.Status.ELIMINATED)
 			       return false;
+		
+		//find if all the MUSTPLAY players are in align list
+		foreach(Player pS in AlignFind.PlayersWithStatus(listAll, Player.Status.MUSTPLAY)) {
+			bool found = false;
+			foreach(Player p in list)
+				if(p == pS)
+					found = true;
+			if(! found)
+				return false;
+		}
 
 		return true;	
 	}

@@ -86,8 +86,9 @@ public static class AlignFind
 									(Player) list[l],
 									(Player) list[m]
 									} );
-
-							if(align.IsValid(discapMax, discapMin)) //check align is valid and chech that all players CANPLAY
+							
+							//check align is valid and chech that all players CANPLAY, check if all the MUSTPLAY are included
+							if(align.IsValid(list, discapMax, discapMin)) 
 								alignsPossible.Add(align);
 						}
 
@@ -107,4 +108,16 @@ public static class AlignFind
 			align.Print(User.Profile.RESEARCHER);
 		}
 	}
+	
+	public static List<Player> PlayersWithStatus(List<Player> list, Player.Status status)
+	{
+		List<Player> listS = new List<Player>();
+		foreach(Player p in list) {
+			if(p.status == status)
+				listS.Add(p);
+		}
+	
+		return listS;
+	}
+
 }
