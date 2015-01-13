@@ -83,13 +83,15 @@ public class Basquet
 		AlignFind.FindAligns(team.list, user.discapMax, 13);
 
 
-		/*
+		Console.WriteLine("\nCalcule discapTotal of a selected align (players p1-p2-p3-p4-p5)\n");
+
 		Align align = new Align();
 		align.Add(p1);
 		align.Add(p2);
-		Console.WriteLine("\nImprimir aliniacio:");
+		align.Add(p3);
+		align.Add(p4);
+		align.Add(p5);
 		align.Print(user.profile);
-		*/
 	}
 }
 
